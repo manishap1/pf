@@ -20,7 +20,7 @@ module.exports = function(app){
     // app.get('/',function(req,res,next){
     //   res.send(['waterbottel','coke']);
     // });
-  app.post('/donate',requireAuth,function(req,res){
+  app.post('/donate',function(req,res){
     console.log("A Form is posted to create Donate " + req.body.name);
     const doc = new Donate({
      
@@ -39,7 +39,7 @@ module.exports = function(app){
 
 
  
-  app.post('/messages',requireAuth,function(req,res){
+  app.post('/messages',function(req,res){
     console.log("A Form is posted to create messges " + req.body.emailTo);
     const doc = new Messages({
      
@@ -64,7 +64,21 @@ module.exports = function(app){
     Donate.find({}, function(err, docs) {
       if (!err){ 
           console.log(docs);
-          res.json(docs);
+          res.json({data: docs});
+          // process.exit();
+      } else {throw err;}
+  });
+    // Donate.find({recipient: req.user._id}, (err, docs) => {
+    //   res.json(docs)
+    // })
+  })
+
+  app.get('/notify', (req, res) => {
+    console.log('hello world');
+    Messages.find({}, function(err, docs) {
+      if (!err){ 
+          console.log(docs);
+          res.json({data: docs});
           // process.exit();
       } else {throw err;}
   });

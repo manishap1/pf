@@ -7,6 +7,13 @@ import {reduxForm} from 'redux-form';
 import * as actions from '../actions';
 import { connect } from 'react-redux';
 import {userMessages} from '../actions/index.js';
+const center = {paddingLeft : '250px', paddingTop:'5%',color : 'white'};
+const bg = {backgroundColor : '#ABAB25',
+width: '55%',
+borderStyle: 'inset',
+color:'white',
+
+};
 
 
 class Messages extends Component {
@@ -30,9 +37,11 @@ class Messages extends Component {
     render(){
         const { handleSubmit , fields : {emailTo, message, emailFrom}} = this.props;
         return(
-           
+            <div className = "formDiv" style={center}>
+            {/* <img src="../../../style/lo.png" alt=""/> */}
+            <div style={bg}><h2 style={{ textDecorationLine: 'underline' }}>New Message</h2></div>
             <form className="form" onSubmit={handleSubmit(this.handleFormSubmit.bind(this))} >
-             <h3>Fill the form below for danations</h3>
+             <h3>Compose</h3>
             <fieldset  className="form-group " >
            
                 <label>Email To:</label>
@@ -55,6 +64,7 @@ class Messages extends Component {
            <button action= "submit" className = "btn btn-primary">Send</button>
        
        </form>
+       </div>
         )
     }
 }

@@ -3,7 +3,20 @@ import {reduxForm} from 'redux-form';
 import * as actions from '../actions';
 import { connect } from 'react-redux';
 // import {userDonate} from '../actions/index.js';
+const bg = {backgroundColor : '#ABAB25',
+width: '100%',
+borderStyle: 'inset',
+color:'white',
+textAlign: 'center'
 
+
+};
+const center = {
+  paddingLeft : '100px' ,
+  paddingTop : '10px' ,
+  color : 'white'
+ 
+}
 
 class Donate extends Component {
      handleFormSubmit(formprops){
@@ -26,9 +39,11 @@ class Donate extends Component {
     render(){
         const { handleSubmit , fields : { name,fType,expDate,note,zip }} = this.props;
         return(
-           
+            <div  style = {{paddingTop : '10px'}}> 
+            <div style={bg}><h1 style={{ textDecorationLine: 'underline' }}>Make Donations </h1></div>
+            <div  style={center}> 
             <form className="form" onSubmit={handleSubmit(this.handleFormSubmit.bind(this))} >
-             <h3>Fill the form below for danations</h3>
+             <h3>Fill the form below for donations</h3>
             <fieldset  className="form-group " >
            
                 <label>Name:</label>
@@ -60,6 +75,8 @@ class Donate extends Component {
            <button action= "submit" className = "btn btn-primary">Send</button>
        
        </form>
+       </div>
+       </div>
         )
     }
 }

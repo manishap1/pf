@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
+// const btn ={backgroundColor: 'black' };
+const font = {fontFamily: 'Arizonia'};
 
 
 class Header extends Component{
@@ -8,14 +10,20 @@ class Header extends Component{
         if(this.props.authenticated){
             //show a link to sign out
           return [
+            <li>
+            <Link className="nav-link" to="/feature">
+                About
+             </Link>
+            </li>,
            <li className="nav-item">
+            
            <Link className="nav-link" to="/donate">
-                Donations
+                Make Donations
              </Link>
             </li> ,
              <li className="nav-item">
              <Link className="nav-link" to="/find">
-                  Find 
+                  Available Donations
                </Link>
               </li>,
                <li className="nav-item">
@@ -23,6 +31,11 @@ class Header extends Component{
                     Messages
                  </Link>
                 </li>,
+                 <li className="nav-item">
+                 <Link className="nav-link" to="/notify">
+                      Notifications
+                   </Link>
+                  </li>,
                  <li className="nav-item">
                  <Link className="nav-link" to="/signout">
                       Sign Out
@@ -46,11 +59,12 @@ class Header extends Component{
         }
         
     }
+    //
     render(){
         return(
-            <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
+            <nav className="navbar navbar-inverse navbar-toggleable-md navbar-light nav bg-faded fluid">
                       
-                       <Link to="/" className="navbar-brand">FoodChain</Link>
+                       <Link to="/" className="navbar-brand" style={font}>AustinFoodChain</Link>
                        <div
                      className="collapse navbar-collapse"
                          id="navbarSupportedContent">

@@ -15,6 +15,7 @@ import Feature from './components/feature';
 import Messages from './components/messages';
 import Find from './components/find';
 import Donate from './components/donate';
+import Notify from './components/notify';
 
 
 import RequireAuth from './components/auth/require_auth';
@@ -41,6 +42,7 @@ ReactDOM.render(
         <Route path="find" component={RequireAuth(Find)}/>
         <Route path="messages" component={RequireAuth(Messages)}/>
         <Route path="donate" component={Donate}/>
+        <Route path="notify" component={Notify}/>
       </Route>
     <App />
     </Router>

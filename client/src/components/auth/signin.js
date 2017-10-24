@@ -3,6 +3,15 @@ import {reduxForm} from 'redux-form';
 import * as actions from '../../actions';
 import { connect } from 'react-redux';
 
+const formDiv ={width: '50%', backgroundColor :'#040400' };
+const center = {paddingLeft : '250px', paddingTop:'2%',color:'white'};
+const bg = {backgroundColor : '#ABAB25',
+            width: '45%',
+            borderStyle: 'inset',
+            color:'white',
+            
+            };
+
 class Signin extends Component {
     handleFormSubmit({email,password}){
         console.log(email,password);
@@ -23,6 +32,11 @@ class Signin extends Component {
         //const {handleSubmit} = this.props
          const{ handleSubmit, fields :{email,password}} = this.props;
        return (
+         
+           <div className = "formDiv " style={center}>
+            <img src="../../../style/lo.png" alt=""/ >
+           <div style={bg}> <h1 style={{ textDecorationLine: 'underline' }}>LogIn</h1></div>
+          
        <form onSubmit = {handleSubmit(this.handleFormSubmit.bind(this))}>
            <fieldset  className="form-group">
                <label>Email:</label>
@@ -35,9 +49,11 @@ class Signin extends Component {
               <input {...password} type = "password" className="form-control"/> 
            </fieldset>
            {this.renderAlert()}
-           <button action="submit" className="btn btn-primary">SignIn</button>
+           <button action="submit" className="btn btn-success">SignIn</button>
        
        </form>
+       </div>
+       
        );
     }
 }

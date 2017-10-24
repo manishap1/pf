@@ -21,43 +21,32 @@ textAlign: 'center'
 "zip": 78681,
 
 */
-export default class Find extends React.Component {
+export default class Notify extends React.Component {
 
     render(){
-         const datasource = 'http://localhost:3090/find';
+         const datasource = 'http://localhost:3090/messages';
          const stateKey = 'st';
          const columns = [
              {
-                 name: 'Name',
+                 name: 'emailFrom',
                  width: '15%',
                  className: 'additional-class',
-                 dataIndex: 'name',
+                 dataIndex: 'emailFrom',
                  HANDLE_CLICK: () => { console.log('Header Click'); }
              }, {
-                 name: 'Food Type',
+                 name: 'message',
                  width: '15%',
                  className: 'additional-class',
-                 dataIndex: 'fType',
+                 dataIndex: 'message',
                  HANDLE_CLICK: () => { console.log('Header Click'); }
-             },{
-                 name: 'Expiration Date',
-                 width: '15%',
-                 className: 'additional-class',
-                 dataIndex: 'expDate',
-                 HANDLE_CLICK: () => { console.log('Header Click'); }
-             },{
-                 name: 'Zip',
-                 width: '15%',
-                 className: 'additional-class',
-                 dataIndex: 'zip',
-                 HANDLE_CLICK: () => { console.log('Header Click'); }
-             },{
-                               name: 'Note',
-                               width: '40%',
-                               className: 'additional-class',
-                               dataIndex: 'note',
-                               HANDLE_CLICK: () => { console.log('Header Click'); }
-                           }
+             },
+             {
+                name: 'emailTo',
+                width: '15%',
+                className: 'additional-class',
+                dataIndex: 'emailTo',
+                HANDLE_CLICK: () => { console.log('Header Click'); }
+            }
              ]
              const plugins = {COLUMN_MANAGER: {
                                       resizable: true,
@@ -71,7 +60,7 @@ export default class Find extends React.Component {
              const divStyle = {paddingTop: "30px"}
       return (
           <div >
-        <div style={bg} ><h1 style={{ textDecorationLine: 'underline' }}>Available Donations </h1></div>
+        <div style={bg} ><h3 style={{ textDecorationLine: 'underline' }}>Recieved Messages</h3></div>
  <Provider store={ Store }>
  <div style={divStyle}>
        <Grid
